@@ -32,13 +32,18 @@ export class JogoRepository implements ProdutoRepository {
         }
     }
 
-    deletar(id: number): void {
-        const index = this.listaJogos.findIndex(jogo => jogo.id === id);
-        if (index !== -1) {
-            console.log(`\nJogo '${this.listaJogos[index].nome}' excluído.`);
-            this.listaJogos.splice(index, 1);
-        } else {
-            console.log("\nJogo não encontrado!");
-        }
+   
+public deletar(id: number): void {
+    const index = this.listaJogos.findIndex(jogo => jogo.id === id);
+
+    if (index !== -1) {
+        const jogoRemovido: Jogo = this.listaJogos[index]!;
+        console.log(`\nJogo '${jogoRemovido.nome}' excluído.`);
+        this.listaJogos.splice(index, 1);
+    } else {
+        console.log("\nJogo não encontrado!");
     }
 }
+
+    }
+
